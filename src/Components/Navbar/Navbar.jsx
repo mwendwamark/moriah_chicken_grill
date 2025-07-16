@@ -9,11 +9,17 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    function handleScroll() {
-      setScrolled(window.scrollY >= 100);
-    }
+    const handleScroll = () => {
+      if (window.scrollY >= 105) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);

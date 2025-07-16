@@ -1,6 +1,6 @@
 .home_page {
   width: 100%;
-  padding: 3rem 0;
+  /* padding: 3rem 0; */
 }
 
 .home_page-hero {
@@ -147,14 +147,14 @@
   align-items: center;
   gap: 0.5rem;
 }
+.home_page-about-us-heading span,
 .home_page-products-title span {
   font-size: var(--text-2xl);
   color: var(--text-light);
   text-align: center;
 }
 
-.home_page-title-h2,
-.home_page-products-title h2 {
+.home_page-products-title strong {
   font-size: var(--text-3xl);
   font-weight: var(--medium-fw);
   text-align: center;
@@ -224,6 +224,7 @@
 .home_page-product-description {
   color: var(--text-light);
   flex-grow: 1;
+  line-height: 1.6;
 }
 
 .home_page-product-pricing {
@@ -242,30 +243,141 @@
 }
 
 .home_page-product-pricing p {
-  padding: 0.6rem 1.5rem; /* Slightly increased padding for a larger hit area */
-  background-color: var(--maroon);
-  border-radius: 0rem 1rem; /* Adjusted border-radius for aesthetic */
-  border: 1px solid var(--maroon);
+  padding: 0.6rem 1.5rem; /* Maintain padding */
+  /* --- CHANGES START HERE --- */
+  background-color: transparent; /* Remove background color */
+  border-radius: 0rem 1rem; /* Maintain border-radius */
+  border: 1px solid var(--maroon); /* Set border to maroon */
   transition: var(--transition); /* Smooth transition for all properties */
   cursor: pointer;
-  display: flex; /* Ensure flex for alignment of icon */
-  align-items: center; /* Center the icon vertically */
-  justify-content: center; /* Center the icon horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home_page-product-pricing p .shopping_cart-icon {
-  color: var(--primary-color);
+  color: var(--maroon); /* Make initial icon color maroon */
   transition: var(--transition); /* Smooth transition for icon color */
 }
 
 .home_page-product-pricing p:hover {
-  background-color: transparent;
-  color: var(--maroon); /* Text color changes on hover of parent p */
+  background-color: var(--maroon); /* On hover, background becomes maroon */
+  color: var(--primary-color); /* Text color (if any) changes to white */
 }
 
 .home_page-product-pricing p:hover .shopping_cart-icon {
-  color: var(--maroon); /* Icon color changes on hover of parent p */
+  color: var(--primary-color); /* On hover, icon color changes to white */
 }
+/* --- CHANGES END HERE --- */
+
+/* About Us Section Styles - Add this to your Home.css */
+
+.home_page-about-us {
+  /* padding: 6rem 0 2rem 0; */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.home_page-about-us-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem;
+  align-items: center;
+}
+.home_page-about-us-h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.home_page-about-us-h2 strong {
+  font-family: "Baskervville", serif;
+  font-size: var(--text-3xl);
+  font-weight: var(--medium-fw);
+  color: var(--text-color);
+  margin: 0;
+}
+
+.home_page-about-us-contents {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home_page-about-description {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.home_page-about-description p {
+  font-family: "Outfit", sans-serif;
+  font-weight: var(--normal-fw);
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.home_page-hero-cta,
+.home_page-about-cta {
+  margin-top: 1rem;
+}
+.home_page-hero-cta .btn,
+.home_page-about-cta .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.home_page-about-images {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 500px;
+}
+
+.home_page-about-image-left {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: -40px;
+}
+
+.home_page-about-image-left img {
+  width: 280px;
+  height: 350px;
+  object-fit: cover;
+  border-top-right-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.home_page-about-image-right {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 40px;
+}
+
+.home_page-about-image-right img {
+  width: 280px;
+  height: 350px;
+  object-fit: cover;
+  border-top-left-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  box-shadow: var(--shadow-md);
+}
+
+/* Tablet Styles */
 
 @media screen and (max-width: 1440px) {
   .home_page-hero-images-container {
@@ -279,7 +391,24 @@
     padding: 1rem;
   }
 }
-
+@media screen and (max-width: 1024px) {
+  .home_page-about-us-contents {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  .home_page-about-description {
+    margin: 0 auto;
+  }
+  .home_page-about-images {
+    justify-content: center;
+  }
+  .home_page-about-image-right img,
+  .home_page-about-image-left img {
+    width: 300px;
+    height: 400px;
+  }
+}
 @media screen and (max-width: 900px) {
   .home_page-hero-images {
     grid-template-columns: repeat(3, 1fr);
@@ -320,6 +449,36 @@
     width: 100%;
     padding: 1rem 0;
     position: relative;
+  }
+  .home_page-about-description {
+    order: 1;
+    align-items: center;
+  }
+
+  .home_page-about-description p {
+    text-align: center;
+    max-width: 90%;
+  }
+
+  .home_page-about-images {
+    order: 2;
+    height: 400px;
+    justify-content: center;
+  }
+  .home_page-about-image-right img,
+  .home_page-about-image-left img {
+    width: 250px;
+    height: 320px;
+  }
+}
+@media screen and (max-width: 580px) {
+  .home_page-about-us-h2 {
+    flex-direction: column;
+  }
+  .home_page-about-image-right img,
+  .home_page-about-image-left img {
+    width: 200px;
+    height: 290px;
   }
 }
 
@@ -379,8 +538,8 @@
   .home_page-stats-item p {
     font-size: var(--text-sm);
   }
-  
-  .home_page-products-contents{
+
+  .home_page-products-contents {
     padding: 1rem 0rem;
   }
   .home_page-section-heading {
@@ -388,5 +547,44 @@
     flex-direction: column;
     align-items: center;
     gap: 0rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .home_page-about-images {
+    height: 350px;
+    gap: 0.5rem;
+  }
+  .home_page-about-image-left img {
+    width: 160px;
+    height: 220px;
+    border-top-right-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+  }
+
+  .home_page-about-image-right img {
+    width: 160px;
+    height: 220px;
+    border-top-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+  }
+
+  .home_page-about-description p {
+    font-size: var(--text-normal);
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .home_page-about-image-left img {
+    width: 130px;
+    height: 200px;
+    border-top-right-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+  }
+
+  .home_page-about-image-right img {
+    width: 130px;
+    height: 200px;
+    border-top-left-radius: 3rem;
+    border-bottom-right-radius: 3rem;
   }
 }

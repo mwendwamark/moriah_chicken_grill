@@ -1,4 +1,5 @@
-// Home.jsx
+// Home.jsx (Updated useEffect)
+
 import React, { useEffect } from "react";
 import "./Home.css";
 import { NavLink } from "react-router-dom";
@@ -10,14 +11,19 @@ import Hamburger from "../../assets/Hamburger.jpg";
 import Full_Grilled_Chicken from "../../assets/Full_Grilled_Chicken.jpg";
 import Chicken_pieces from "../../assets/Chicken_Pieces.jpg";
 import Moriah_Fries from "../../assets/Moriah_Fries.jpg";
+import MoriahLocation from "../../assets/MoriahLocation.jpg";
+import MoriahLocation1 from "../../assets/MoriahLocation1.jpg";
 import homeProducts from "../../MockData/HomeProducts";
 
 const Home = () => {
   useEffect(() => {
-    const e = document.querySelector("#moriah_chicken_grill");
-    const f = document.querySelector("#home_section-heading");
-    if (e) {
-      const annotation = annotate(e, {
+    const moriahGrillElement = document.querySelector("#moriah_chicken_grill");
+
+    // Select ALL elements with the class 'rough-annotate-heading'
+    const elementsToAnnotate = document.querySelectorAll(".rough-annotate-heading");
+
+    if (moriahGrillElement) {
+      const annotation = annotate(moriahGrillElement, {
         animate: true,
         type: "circle",
         color: "#f5c412", // Semi-transparent maroon
@@ -27,19 +33,22 @@ const Home = () => {
       annotation.show();
     }
 
-    if (f) {
-      const annotation = annotate(f, {
+    // Loop through each selected element and apply the annotation
+    elementsToAnnotate.forEach(element => {
+      const annotation = annotate(element, {
         animate: true,
-        type: "underline",
+        type: "highlight",
         color: "#aa060d",
         strokeWidth: 5,
       });
       annotation.show();
-    }
-  }, []);
+    });
+
+  }, []); // Empty dependency array means this runs once after the initial render
+
   return (
     <>
-      <div className="home_page">
+      <div className="home_page below-navbar">
         <section className="home_page-hero container">
           <div className="home_page-hero-title">
             <h1>
@@ -100,11 +109,9 @@ const Home = () => {
         <section className="home_page-products container section">
           <div className="home_page-products-title">
             <span>Our Products</span>
-            <h2 className="home_page-section-heading"> {/* Apply flex properties to this h2 */}
-              <h2>From Our </h2>{" "}
-              <h2 id="home_section-heading">
-                experienced chefs
-              </h2>{" "}
+            <h2 className="home_page-section-heading">
+              <strong>From Our </strong>{" "}
+              <strong className="rough-annotate-heading">experienced chefs</strong>{" "} {/* Applied the class */}
             </h2>
           </div>
           <div className="home_page-products-contents">
@@ -144,6 +151,59 @@ const Home = () => {
                 </div>
               );
             })}
+          </div>
+        </section>
+
+        <section className="home_page-about-us container section">
+          <div className="home_page-about-us-heading">
+            <span>About us</span>
+            <h2 className="home_page-about-us-h2">
+              <strong>Why we are </strong>
+              <strong className="rough-annotate-heading">the best</strong> {/* Applied the class */}
+            </h2>
+          </div>
+
+          <div className="home_page-about-us-contents">
+            <div className="home_page-about-description">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt,
+                aut accusamus vel magni praesentium laborum sequi. Facere fuga
+                inventore, quam ratione quasi dignissimos pariatur excepturi
+                fugit quos repellat voluptas assumenda.
+              </p>
+
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
+                natus, adipisci accusamus soluta optio tempora incidunt officiis
+                nulla autem et. Rem molestiae doloribus eius mollitia error
+                facere ea quam distinctio.
+              </p>
+
+              <div className="home_page-about-cta">
+                <NavLink className="btn btn-primary">
+                  READ MORE
+                  <ArrowDownRight size={18} />
+                </NavLink>
+              </div>
+            </div>
+
+            <div className="home_page-about-images">
+              <div className="home_page-about-image-left">
+                <img
+                  src={MoriahLocation}
+                  alt="Coffee portafilter with beans"
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="home_page-about-image-right">
+                <img
+                  src={MoriahLocation1}
+                  alt="Bowl of coffee beans"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
         </section>
       </div>

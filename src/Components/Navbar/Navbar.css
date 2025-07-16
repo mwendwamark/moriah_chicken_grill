@@ -2,6 +2,16 @@
   width: 100%;
   padding: 0rem;
   background-color: transparent;
+  position: fixed;
+  z-index: 10;
+  transition: background-color var(--transition), box-shadow var(--transition);
+}
+
+.scroll_navbar {
+  box-shadow: var(--shadow-sm);
+  background-color: var(--yellow);
+  /* Removed redundant transition here as it's handled by .main_navbar */
+  transition: var(--transition);
 }
 
 .main_navbar-container {
@@ -50,6 +60,18 @@
   opacity: 0.7;
 }
 
+/* Improved focus states for nav links */
+.main_navbar-nav-link:focus-visible {
+  outline: 2px solid var(--maroon);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.main_navbar-nav-link.active:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
 .main_navbar-right-section {
   display: flex;
   justify-content: flex-end;
@@ -64,6 +86,20 @@
 .main_navbar-icon {
   color: var(--text-color);
   cursor: pointer;
+  /* Added transitions for icon hover/focus effects */
+  transition: color var(--transition), transform var(--transition);
+}
+
+.main_navbar-icon:hover {
+  color: var(--maroon);
+  transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+/* Added focus state for icons */
+.main_navbar-icon:focus-visible {
+  outline: 2px solid var(--maroon);
+  outline-offset: 2px;
+  border-radius: 50%; /* Rounded outline for icons */
 }
 
 .main_navbar-menu-icon {
@@ -80,7 +116,7 @@
     grid-template-columns: auto 1fr auto;
     padding: 0.8rem 0;
   }
-
+  
   .main_navbar-logo {
     height: 70px;
     width: 70px;
@@ -90,7 +126,7 @@
     display: inline-block;
     z-index: 100;
   }
-
+  
   .close_menu {
     color: var(--primary-color);
   }
@@ -109,11 +145,12 @@
     transition: right 0.7s ease;
     gap: 1.25rem;
   }
-
+  
   .main_navbar-links.active_menu {
+    z-index: 100;
     right: 0;
   }
-
+  
   .main_navbar-nav-link {
     color: var(--primary-color);
   }
