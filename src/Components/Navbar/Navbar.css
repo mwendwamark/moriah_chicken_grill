@@ -9,7 +9,7 @@
 
 .scroll_navbar {
   box-shadow: var(--shadow-sm);
-  background-color: var(--yellow);
+  background-color: var(--primary-color);
   /* Removed redundant transition here as it's handled by .main_navbar */
   transition: var(--transition);
 }
