@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Helmet } from 'react-helmet';
 import "./Contacts.css";
 import { Facebook, Instagram, Linkedin, Mail, Twitter } from "lucide-react";
+import SEO from "../../Components/SEO/SEO";
 
 const Contacts = () => {
   const [formData, setFormData] = useState({
@@ -25,8 +27,34 @@ const Contacts = () => {
     // You can add your form submission logic here
   };
 
+  // Structured data for Contact Page
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Us - Moriah Chicken Grill",
+    "description": "Get in touch with Moriah Chicken Grill. We'd love to hear from you about our delicious chicken dishes and catering services.",
+    "publisher": {
+      "@type": "Restaurant",
+      "name": "Moriah Chicken Grill",
+      "servesCuisine": ["Chicken Dishes", "Grilled Food"],
+      "priceRange": "$$",
+      "image": "https://moriahchickengrill.vercel.app/assets/logo.png"
+    }
+  };
+
   return (
-    <div className="contacts_page below-navbar">
+    <>
+      <SEO 
+        title="Contact Us - Moriah Chicken Grill"
+        description="Get in touch with Moriah Chicken Grill. We're here to answer your questions and take your orders. Visit us or contact us today!"
+        keywords="contact Moriah Chicken Grill, chicken restaurant contact, order chicken, catering services, Moriah Grill contact"
+      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+      <div className="contacts_page below-navbar">
       <div className="contacts_container container">
         <div className="contacts_right-section">
           <div className="contacts_page-title">
@@ -150,6 +178,7 @@ const Contacts = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

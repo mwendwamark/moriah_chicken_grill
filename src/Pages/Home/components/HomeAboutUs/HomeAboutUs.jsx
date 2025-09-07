@@ -3,8 +3,8 @@ import "./HomeAboutUs.css";
 import { NavLink } from "react-router-dom";
 import { annotate } from "rough-notation";
 import { ArrowDownRight } from "lucide-react";
-import MoriahLocation from "../../../../assets/MoriahLocation.jpg";
-import MoriahLocation1 from "../../../../assets/MoriahLocation1.jpg";
+import MoriahLocation from "../../../../assets/MoriahLocation.webp";
+import MoriahLocation1 from "../../../../assets/MoriahLocation1.webp";
 
 const HomeAboutUs = () => {
   useEffect(() => {

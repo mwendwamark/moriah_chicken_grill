@@ -3,12 +3,12 @@ import "./HomeHero.css";
 import { NavLink } from "react-router-dom";
 import { annotate } from "rough-notation";
 import { ArrowDownRight } from "lucide-react";
-import Shawarma from "../../../../assets/Shawarma.jpg";
-import Pilau_and_Meat from "../../../../assets/Pilau_and_Meat.jpg";
-import Hamburger from "../../../../assets/Hamburger.jpg";
-import Full_Grilled_Chicken from "../../../../assets/Full_Grilled_Chicken.jpg";
-import Chicken_pieces from "../../../../assets/Chicken_Pieces.jpg";
-import Moriah_Fries from "../../../../assets/Moriah_Fries.jpg";
+import Shawarma from "../../../../assets/Shawarma.webp";
+import Pilau_and_Meat from "../../../../assets/Pilau_and_Meat.webp";
+import Hamburger from "../../../../assets/Hamburger.webp";
+import Full_Grilled_Chicken from "../../../../assets/Full_Grilled_Chicken.webp";
+import Chicken_pieces from "../../../../assets/Chicken_Pieces.webp";
+import Moriah_Fries from "../../../../assets/Moriah_Fries.webp";
 
 const HomeHero = () => {
   useEffect(() => {

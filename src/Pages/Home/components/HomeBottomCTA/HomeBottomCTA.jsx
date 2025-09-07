@@ -1,6 +1,8 @@
 import React from 'react';
 import './HomeBottomCTA.css';
-import homeCtaImg from "../../../../assets/HomeCTA.jpg";
+// import homeCtaImg from "../../../../assets/HomeCTA.jpg";
+import homeCtaImg from "../../../../assets/chef1.webp";
+
 import { Mail, PhoneCall } from 'lucide-react';
 
 const HomeBottomCTA = () => {

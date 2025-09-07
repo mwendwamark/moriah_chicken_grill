@@ -1,7 +1,7 @@
-import img1 from "../assets/Full_Grilled_Chicken.jpg";
-import img2 from "../assets/Hamburger.jpg";
+import img1 from "../assets/Full_Grilled_Chicken.webp";
+import img2 from "../assets/Hamburger.webp";
 import img3 from "../assets/Rice_and_meat.webp";
-import img4 from "../assets/Shawarma.jpg";
+import img4 from "../assets/Shawarma.webp";
 const homeProducts = [
   {
     id: 1,
